@@ -62,7 +62,10 @@ app.post('/api/telemetry', (req, res) => {
         if (data.status) latestSnapshot.status.system_mode = data.status;
         if (data.decision) latestSnapshot.status.decision = data.decision;
 
-        // Append to logs if needed or just log to console
+        // Update logs for the frontend
+        latestSnapshot.logs = [`${data.vital_type} updated to ${data.value}`];
+
+        // Console log
         console.log(`[Telemetry] Updated ${data.vital_type}: ${data.value}`);
 
     } else if (data.vitals) {
