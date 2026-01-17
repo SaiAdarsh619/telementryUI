@@ -13,10 +13,10 @@ export default defineConfig({
         secure: false,
       }
     },
-    allowedHosts: 'all'
+    allowedHosts: ["telementryui-1.onrender.com"]
   },
   preview: {
-    allowedHosts: 'all'
+    allowedHosts: ["telementryui-1.onrender.com"]
   }
 
 })
