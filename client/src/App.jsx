@@ -8,7 +8,8 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/telemetry');
+        const backendUrl = import.meta.env.VITE_BACKEND_URL || '';
+        const response = await fetch(`${backendUrl}/api/telemetry`);
         if (response.ok) {
           const newData = await response.json();
           setConnected(true);
