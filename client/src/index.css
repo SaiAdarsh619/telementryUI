@@ -1,0 +1,128 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  --color-bg: #121212;
+  --color-card: #1e1e1e;
+  --color-text-primary: #e0e0e0;
+  --color-text-secondary: #a0a0a0;
+  --color-accent: #646cff;
+  --color-danger: #ff4d4f;
+  --color-warning: #faad14;
+  --color-success: #52c41a;
+  
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.status-normal { background-color: rgba(82, 196, 26, 0.2); color: var(--color-success); border: 1px solid var(--color-success); }
+.status-warning { background-color: rgba(250, 173, 20, 0.2); color: var(--color-warning); border: 1px solid var(--color-warning); }
+.status-critical { background-color: rgba(255, 77, 79, 0.2); color: var(--color-danger); border: 1px solid var(--color-danger); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--color-card);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  text-align: left;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.vital-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+}
+
+.vital-unit {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.range-info {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+
+.log-container {
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #000;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.log-entry {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.2rem;
+}
+
+.timestamp {
+  color: var(--color-accent);
+  margin-right: 0.5rem;
+}
+
+.observability-note {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: rgba(100, 108, 255, 0.1);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
