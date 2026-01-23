@@ -44,6 +44,11 @@ app.post('/api/telemetry', (req, res) => {
         data.timestamp = new Date().toISOString();
     }
 
+    // Log the complete incoming packet for debugging
+    console.log('\n========== INCOMING TELEMETRY PACKET ==========');
+    console.log(JSON.stringify(data, null, 2));
+    console.log('===============================================\n');
+
     // HANDLE DATA AGGREGATION
     if (data.vital_type) {
         // Case 1: Stream of individual events (HEART_RATE, SPO2, etc.)
