@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import Profile from './Profile';
 
 function App() {
   const [data, setData] = useState(null);
   const [logs, setLogs] = useState([]);
   const [connected, setConnected] = useState(false);
+  const [currentView, setCurrentView] = useState('dashboard'); // 'dashboard' or 'profile'
+  const [userProfile, setUserProfile] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +20,11 @@ function App() {
           if (newData.status === 'waiting_for_data') {
             // Do nothing if server has no data yet
             return;
+          }
+
+          // Store user profile if present
+          if (newData.user_profile) {
+            setUserProfile(newData.user_profile);
           }
 
           // Only update if timestamp covers a new event or first load
@@ -65,11 +73,24 @@ function App() {
     }
   };
 
+  // If viewing profile, render Profile component
+  if (currentView === 'profile') {
+    return <Profile userProfile={userProfile} onBack={() => setCurrentView('dashboard')} />;
+  }
+
   return (
     <div className="dashboard-container">
       <header className="header">
         <h1>Telemetry Dashboard</h1>
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <button
+            className="profile-button"
+            onClick={() => setCurrentView('profile')}
+            disabled={!userProfile}
+            title={!userProfile ? 'No profile data available yet' : 'View user profile'}
+          >
+            👤 Profile
+          </button>
           <div className={`status-badge ${connected ? 'status-normal' : 'status-critical'}`}>
             {connected ? 'CONNECTED' : 'DISCONNECTED'}
           </div>

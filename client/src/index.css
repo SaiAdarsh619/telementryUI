@@ -2,7 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  
+
   --color-bg: #121212;
   --color-card: #1e1e1e;
   --color-text-primary: #e0e0e0;
@@ -11,7 +11,7 @@
   --color-danger: #ff4d4f;
   --color-warning: #faad14;
   --color-success: #52c41a;
-  
+
   color: var(--color-text-primary);
   background-color: var(--color-bg);
 }
@@ -53,9 +53,23 @@ body {
   font-size: 0.9rem;
 }
 
-.status-normal { background-color: rgba(82, 196, 26, 0.2); color: var(--color-success); border: 1px solid var(--color-success); }
-.status-warning { background-color: rgba(250, 173, 20, 0.2); color: var(--color-warning); border: 1px solid var(--color-warning); }
-.status-critical { background-color: rgba(255, 77, 79, 0.2); color: var(--color-danger); border: 1px solid var(--color-danger); }
+.status-normal {
+  background-color: rgba(82, 196, 26, 0.2);
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+.status-warning {
+  background-color: rgba(250, 173, 20, 0.2);
+  color: var(--color-warning);
+  border: 1px solid var(--color-warning);
+}
+
+.status-critical {
+  background-color: rgba(255, 77, 79, 0.2);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+}
 
 .grid {
   display: grid;
@@ -67,7 +81,7 @@ body {
   background-color: var(--color-card);
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   text-align: left;
 }
 
@@ -125,4 +139,35 @@ body {
   border-radius: 4px;
   font-size: 0.8rem;
   color: var(--color-text-secondary);
+}
+
+.profile-button,
+.back-button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-accent);
+  background-color: rgba(100, 108, 255, 0.1);
+  color: var(--color-accent);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.profile-button:hover:not(:disabled),
+.back-button:hover {
+  background-color: rgba(100, 108, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.profile-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contact-card {
+  padding: 0.75rem;
+  background-color: rgba(100, 108, 255, 0.05);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid var(--color-accent);
 }
