@@ -67,6 +67,12 @@ app.post('/api/telemetry', (req, res) => {
         if (data.status) latestSnapshot.status.system_mode = data.status;
         if (data.decision) latestSnapshot.status.decision = data.decision;
 
+        // Preserve user_profile if present in the packet
+        if (data.user_profile) {
+            latestSnapshot.user_profile = data.user_profile;
+            console.log('[Telemetry] User profile data received and stored');
+        }
+
         // Update logs for the frontend
         latestSnapshot.logs = [`${data.vital_type} updated to ${data.value}`];
 
